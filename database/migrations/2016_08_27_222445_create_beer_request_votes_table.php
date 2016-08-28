@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateBeerRequestTable extends Migration
+class CreateBeerRequestVotesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,18 +13,18 @@ class CreateBeerRequestTable extends Migration
      */
     public function up()
     {
-        Schema::create('beer_requests', function (Blueprint $table) {
+        Schema::create('beer_request_votes', function (Blueprint $table) {
             $table->increments('id');
+            $table->unsignedInteger('beer_request_id');
+            $table->foreign('beer_request_id')
+                ->references('id')
+                ->on('beer_requests')
+                ->onDelete('cascade');
             $table->unsignedInteger('user_id');
             $table->foreign('user_id')
                 ->references('id')
                 ->on('users')
                 ->onDelete('cascade');
-            $table->string('beer_name');
-            $table->string('beer_style')->nullable();
-            $table->string('brewery_name')->nullable();
-            $table->string('brewery_location')->nullable();
-            $table->timestamp('fulfilled_at')->nullable();
             $table->timestamps();
         });
     }
@@ -36,6 +36,6 @@ class CreateBeerRequestTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('beer_requests');
+        Schema::dropIfExists('beer_request_votes');
     }
 }

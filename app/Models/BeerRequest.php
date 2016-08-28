@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class BeerRequest extends Model
+class BeerRequest extends BaseModel
 {
     protected $table = 'beer_requests';
 
@@ -23,8 +23,26 @@ class BeerRequest extends Model
         'fulfilled_at',
     ];
 
+    protected $rules = [
+        'user_id' => 'required|exists:users,id',
+        'beer_name' => 'required|string',
+        'beer_style' => 'string',
+        'beer_ibu' => 'integer',
+        'beer_abv' => 'numeric',
+    ];
+
+    protected $with = [
+        'user',
+        'votes',
+    ];
+
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function votes()
+    {
+        return $this->hasMany(BeerRequestVote::class);
     }
 }

@@ -17,5 +17,8 @@ class UserSeeder extends Seeder
             'email' => 'jared@vynyl.com',
             'api_token' => '268a3ef2-6c97-11e6-a18e-08002746f3a1',
         ]);
+
+        // ids: 2, 3, 4
+        factory(App\Models\User::class, 3)->create();
     }
 }

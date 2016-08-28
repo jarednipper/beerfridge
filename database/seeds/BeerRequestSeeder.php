@@ -11,6 +11,6 @@ class BeerRequestSeeder extends Seeder
      */
     public function run()
     {
-        $beerRequest = factory(App\Models\BeerRequest::class, 3)->create();
+        factory(App\Models\BeerRequest::class, 3)->create();
     }
 }

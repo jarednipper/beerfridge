@@ -22,6 +22,9 @@ Route::group(['prefix'=>'v1', 'middleware'=>['auth:api']], function () {
 
     Route::group(['prefix'=>'requests'], function () {
         Route::get('', 'BeerRequestController@index');
+        Route::post('', 'BeerRequestController@store');
+        Route::post('{beerRequest}/vote', 'BeerRequestController@vote');
+        Route::post('{beerRequest}/fulfill', 'BeerRequestController@fulfill');
     });
 
 });

@@ -26,10 +26,18 @@ class User extends Authenticatable
      */
     protected $hidden = [
         'password',
+        'created_at',
+        'updated_at',
+        'api_token',
     ];
 
     public function beerRequests()
     {
         return $this->hasMany(BeerRequest::class);
+    }
+
+    public function beerRequestVotes()
+    {
+        return $this->hasMany(BeerRequestVote::class);
     }
 }

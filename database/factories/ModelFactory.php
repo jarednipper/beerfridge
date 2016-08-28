@@ -11,9 +11,12 @@
 |
 */
 
+use Faker\Provider\Uuid;
+
 $factory->define(App\Models\User::class, function (Faker\Generator $faker) {
     return [
         'email' => $faker->safeEmail,
+        'api_token' => Uuid::uuid(),
     ];
 });
 
