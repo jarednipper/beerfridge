@@ -17,7 +17,7 @@ class BeerRequestServiceTest extends TestCase
     {
         $requests = $this->beerRequestService->showIndexRequests();
 
-        $this->assertEquals(3, $requests->count(), 'BeerRequestService->showAllRequests() should return 3 requests.');
+        $this->assertEquals(15, $requests->count(), 'BeerRequestService->showAllRequests() should return 15 requests.');
     }
 
     public function testFulfill()

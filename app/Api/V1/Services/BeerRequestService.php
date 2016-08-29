@@ -15,7 +15,8 @@ class BeerRequestService
             ->get()
             ->sortByDesc(function ($beerRequest) {
                 return $beerRequest->votes->count();
-            });
+            })
+            ->values();
     }
 
     public function fulfillRequest(BeerRequest $beerRequest)

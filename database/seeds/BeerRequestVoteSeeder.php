@@ -1,7 +1,6 @@
 <?php
 
 use App\Models\BeerRequest;
-use App\Models\BeerRequestVote;
 use Illuminate\Database\Seeder;
 
 class BeerRequestVoteSeeder extends Seeder
@@ -13,6 +12,7 @@ class BeerRequestVoteSeeder extends Seeder
      */
     public function run()
     {
+        // user 1 has beerRequest 1 with 3 votes
         $beerRequest = BeerRequest::find(1);
         $beerRequest->votes()->createMany([
             [
@@ -25,5 +25,7 @@ class BeerRequestVoteSeeder extends Seeder
                 'user_id' => 3,
             ],
         ]);
+
+        factory(App\Models\BeerRequestVote::class, 15)->create();
     }
 }

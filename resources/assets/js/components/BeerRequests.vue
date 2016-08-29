@@ -1,8 +1,11 @@
 <template>
 
-    <li v-for="request in requests">
-        {{ request.beer_name }}
-    </li>
+    <ul>
+        <li v-for="request in requests">
+            {{ request.user.name }} wants {{ request.beer_name }} by {{ request.brewery_name }}. {{ request.votes.length }} votes
+        </li>
+    </ul>
+
 
 </template>
 
@@ -10,7 +13,7 @@
     export default {
 
         created() {
-            this.fetchBeerRequests();
+            this.fetchRequests();
         },
 
         data() {
@@ -20,8 +23,10 @@
         },
 
         methods: {
-            fetchBeerRequests: function() {
-                this.$http.get('api/v1/requests').then((requests) => {
+            fetchRequests: function() {
+                this.$http.get('api/v1/requests', {
+                    headers: { 'Authorization': 'Bearer 268a3ef2-6c97-11e6-a18e-08002746f3a1'}
+                }).then((requests) => {
                     this.requests = requests.data;
                 }, (error) => {
                     console.log(error);
