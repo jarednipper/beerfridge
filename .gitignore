@@ -5,3 +5,6 @@
 Homestead.json
 Homestead.yaml
 .env
+npm-debug.log
+public/css
+public/js
