@@ -2,12 +2,20 @@
 
     <form v-on:submit.prevent="postRequest" class="pure-form pure-form-aligned">
         <fieldset>
+
             <div class="pure-control-group">
-                <label for="beerName">Beer Name</label>
+                <label for="breweryName">Brewery</label>
+                <input type="text" id="breweryName" v-model="breweryName" placeholder="Payette">
+            </div>
+
+            <div class="pure-control-group">
+                <label for="beerName">Beer</label>
                 <input type="text" id="beerName" v-model="beerName" placeholder="Rustler">
             </div>
 
-            <button type="submit" class="pure-button pure-button-primary">Request</button>
+            <div class="pure-controls">
+                <button type="submit" class="pure-button pure-button-primary">Request</button>
+            </div>
         </fieldset>
     </form>
 
@@ -18,7 +26,8 @@
 
         data() {
             return {
-                beerName: ""
+                beerName: "",
+                breweryName: ""
             };
         },
 
@@ -26,7 +35,8 @@
             postRequest: function(event) {
 
                 var payload = {
-                    beer_name: this.beerName
+                    beer_name: this.beerName,
+                    brewery_name: this.breweryName
                 };
 
                 this.$http.post('api/v1/requests', payload, {

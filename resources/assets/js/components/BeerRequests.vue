@@ -3,17 +3,22 @@
     <div class="card" v-for="request in requests">
             <div class="pure-g card-header">
                 <div class="pure-u-4-5">
-                    <span>{{ request.beer_name }} by {{ request.brewery_name }}</span>
+                    <span>{{ request.user.name }} wants <b>{{ request.beer_name }}</b> by <b>{{ request.brewery_name }}</b></span>
                 </div>
                 <div class="pure-u-1-5"><!--<span>Icon</span>--></div>
             </div>
 
             <div class="pure-g">
-                <div class="pure-u-1-5">{{ request.votes.length }}</div>
-                <div class="pure-u-1-5"><span v-on:click="vote(request)" v-show="!request.user_has_voted">vote</span></div>
-                <div class="pure-u-1-5"></div>
-                <div class="pure-u-1-5"></div>
-                <div class="pure-u-1-5">{{ request.user.name }}</div>
+                <div class="pure-u-1-5">
+                    <span v-on:click="vote(request)" class="badge" v-bind:class="{ vote: !request.user_has_voted, voted: request.user_has_voted }">
+                        {{ request.votes.length }}
+                    </span>
+                    <!--<span class="badge voted" v-if="request.user_has_voted">voted</span>-->
+                </div>
+                <!--<div class="pure-u-1-5"></div>-->
+                <!--<div class="pure-u-1-5"></div>-->
+                <!--<div class="pure-u-1-5"></div>-->
+                <!--<div class="pure-u-1-5">{{ request.user.name }}</div>-->
             </div>
 
     </div>

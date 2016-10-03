@@ -13,10 +13,10 @@ body {
 
 .card {
   margin-bottom: 1em;
-  border: 1px solid #ddd;
+  //border: 1px solid #ddd;
 }
 .card-header {
-  font-weight: bold;
+  //font-weight: bold;
 }
 .pure-g {
   padding: .3em;
@@ -28,4 +28,20 @@ body {
 .menu h1 {
   margin: 0 auto auto;
   color: $primary;
+}
+
+span.badge {
+  border-radius: 20px;
+  padding: 0.35em 0.9em 0.35em;
+  border: 1px solid #4cae4c;
+}
+
+span.vote {
+  background-color: white;
+  cursor: pointer;
+}
+
+span.voted {
+  background-color: #4cae4c;
+  color: white;
 }
