@@ -15,9 +15,9 @@ class BeerRequestController
         $this->beerRequestService = $beerRequestService;
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        return $this->beerRequestService->showIndexRequests();
+        return $this->beerRequestService->showIndexRequests($request->user());
     }
 
     public function store(Request $request)
@@ -40,7 +40,10 @@ class BeerRequestController
 
     public function vote(Request $request, BeerRequest $beerRequest)
     {
-        return $this->beerRequestService->vote($beerRequest, $request->user());
+        if (!$this->beerRequestService->vote($beerRequest, $request->user())) {
+            return response()->json('', 400);
+        }
+        return response()->json('', 204);
     }
 
     public function fulfill(Request $request, BeerRequest $beerRequest)

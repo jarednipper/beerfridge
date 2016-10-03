@@ -1,9 +1,31 @@
 
-// Fonts
-@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
-
 // Variables
 @import "variables";
 
-// Bootstrap
-@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+body {
+  background-color: $primary;
+}
+
+.content {
+  max-width: 600px;
+  margin: 1em auto auto;
+}
+
+.card {
+  margin-bottom: 1em;
+  border: 1px solid #ddd;
+}
+.card-header {
+  font-weight: bold;
+}
+.pure-g {
+  padding: .3em;
+}
+
+.menu {
+  background-color: $dark;
+}
+.menu h1 {
+  margin: 0 auto auto;
+  color: $primary;
+}

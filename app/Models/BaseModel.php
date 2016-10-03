@@ -10,7 +10,7 @@ class BaseModel extends Eloquent
     use ValidatingTrait;
 
     protected $rules = [
-        'beer_request_id' => 'unique:beer_requests,id,NULL,'
+//        'beer_request_id' => 'unique:beer_requests,id,NULL,'
     ];
 
 }

@@ -1,5 +1,8 @@
 # Beer Fridge
 
-Request beer for the work beer fridge, and vote on others' requests.
+Beer requests and voting for the work beer fridge.
 
-* Laravel 5.3
+* composer install
+* npm install
+* artisan db:migrate --seed
+* gulp

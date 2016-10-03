@@ -36,6 +36,10 @@ class BeerRequest extends BaseModel
         'votes',
     ];
 
+    protected $appends = [
+        'user_has_voted',
+    ];
+
     public function user()
     {
         return $this->belongsTo(User::class);
@@ -44,5 +48,13 @@ class BeerRequest extends BaseModel
     public function votes()
     {
         return $this->hasMany(BeerRequestVote::class);
+    }
+
+    public function getUserHasVotedAttribute()
+    {
+        if (array_key_exists('user_has_voted', $this->attributes)) {
+            return $this->attributes['user_has_voted'];
+        };
+        return null;
     }
 }

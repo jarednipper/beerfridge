@@ -32,13 +32,26 @@ $factory->define(App\Models\BeerRequest::class, function (Faker\Generator $faker
         'Stout',
     ];
 
+    $breweries = [
+        'Barbarian Brewing',
+        'Bear Island Brewing Company',
+        'Bella',
+        'Boise Brewing',
+        'County Line Brewing',
+        'Crescent Brewery',
+        'Crooked Fence Brewery',
+        'Grand Teton Brewing Co',
+        'Laughing Dog Brewing',
+        'Payette Brewing Co',
+    ];
+
     $userId = App\Models\User::where('id', '>', 1)->inRandomOrder()->first()->id;
 
     return [
         'user_id' => $userId,
         'beer_name' => title_case($faker->words(2, true)),
         'beer_style' => $faker->randomElement($styles),
-        'brewery_name' => $faker->company,
+        'brewery_name' => $faker->randomElement($breweries),
         'brewery_location' => $faker->city . ', ' . $faker->stateAbbr,
     ];
 });
