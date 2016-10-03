@@ -1,27 +1,39 @@
 body {
-  background-color: #fff; }
+  color: #303030; }
 
 .content {
   max-width: 600px;
   margin: 1em auto auto; }
 
 .card {
-  margin-bottom: 1em; }
+  margin-bottom: 1em;
+  border-bottom: 1px solid #ddd; }
+  .card a {
+    text-decoration: none;
+    color: inherit; }
 
 .pure-g {
   padding: .3em; }
 
 .menu {
-  background-color: #22272d; }
-
-.menu h1 {
-  margin: 0 auto auto;
-  color: #fff; }
+  background-color: #303030; }
+  .menu h1 a {
+    text-decoration: none;
+    color: inherit; }
+  .menu a {
+    color: white;
+    font-weight: 400; }
+  @media (min-width: 48em) {
+    .menu ul {
+      float: right; } }
+  .menu ul a {
+    color: #4cae4c; }
 
 span.badge {
   border-radius: 20px;
   padding: 0.35em 0.9em 0.35em;
-  border: 1px solid #4cae4c; }
+  border: 1px solid #4cae4c;
+  line-height: 2em; }
 
 span.vote {
   background-color: white;

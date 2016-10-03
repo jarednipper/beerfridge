@@ -15,8 +15,13 @@
     <body>
         <div id="app">
 
-            <div class="menu">
-                <h1>Beer Requests</h1>
+            <div class="menu pure-menu pure-menu-horizontal">
+                <a class="pure-menu-heading" href="#">Beer Requests</a>
+
+                <ul class="pure-menu-list">
+                    <ul><a href="#request" class="pure-menu-link">Request a Beer</a></ul>
+                </ul>
+
             </div>
 
             <div class="content">

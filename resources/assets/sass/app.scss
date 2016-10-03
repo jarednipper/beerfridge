@@ -3,7 +3,7 @@
 @import "variables";
 
 body {
-  background-color: $primary;
+  color: $black;
 }
 
 .content {
@@ -13,27 +13,43 @@ body {
 
 .card {
   margin-bottom: 1em;
-  //border: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
 }
-.card-header {
-  //font-weight: bold;
-}
+
 .pure-g {
   padding: .3em;
 }
 
-.menu {
-  background-color: $dark;
-}
-.menu h1 {
-  margin: 0 auto auto;
-  color: $primary;
+.menu  {
+  background-color: $black;
+  h1 a {
+    text-decoration: none;
+    color: inherit;
+  }
+  a {
+    color: white;
+    font-weight: 400;
+  }
+  ul {
+    @media (min-width: 48em) {
+      float: right;
+    }
+    a {
+      color: $green;
+    }
+  }
 }
 
 span.badge {
   border-radius: 20px;
   padding: 0.35em 0.9em 0.35em;
-  border: 1px solid #4cae4c;
+  border: 1px solid $green;
+  line-height: 2em;
 }
 
 span.vote {
@@ -42,6 +58,6 @@ span.vote {
 }
 
 span.voted {
-  background-color: #4cae4c;
+  background-color: $green;
   color: white;
 }
